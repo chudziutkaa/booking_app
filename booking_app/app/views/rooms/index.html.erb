@@ -1,0 +1,14 @@
+<table class="table table-hover">
+	<% @rooms.each do |r| %>
+	  <tr>
+	    <td><%= r.number %></td>
+	    <td><%= r.name || "No information"%></td>
+	    <td><%= link_to "Details" , room_path(r.id)%></td>
+	    <td><%= link_to "Rent" , rent_room_path(r.id)%></td>
+	    <td><%= link_to "Edit" , edit_hotel_room_path(id: r.id) %></td>
+	  </tr>
+	<% end %>
+</table>
+<tr>
+	<%= link_to "Add new available room" , new_hotel_room_path(hotel_id: params[:hotel_id]) %>
+</tr>

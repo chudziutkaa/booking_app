@@ -1,0 +1,7 @@
+<%= r.label :number %><br/>
+<%= r.text_field :number %><br/>
+<div class="form-group">
+	<%= r.label :name %>
+	<%= r.select :name, ['Single room', 'Double room', 'Twin room', 'Apartament'], class: "form-control" %>
+</div>
+<%= r.submit "Save" %>

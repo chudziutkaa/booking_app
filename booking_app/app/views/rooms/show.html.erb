@@ -1,0 +1,27 @@
+<h2 style="text-align:center">About room: </h2>
+	<div>Number of room: <%= @room.number %></div>
+	<td><%= link_to "Discover other rooms in this hotel", hotel_rooms_path(hotel_id: @room.hotel_id) %></td>
+<h4><%= "Some informations about hotel: " %></h4>
+	<table class="table table-condensed">
+  		<tr>
+  			<td>Name</td>
+  			<td><%= @room.hotel.name %></td>
+  		</tr>
+
+  		<tr>
+  			<td>Standard</td>
+  			<td><%= @room.hotel.standard %></td>
+  		</tr>
+
+  		<tr>
+  			<td>Short description</td>
+  			<td><%= @room.hotel.description %></td>
+  		</tr>
+
+  		<tr>
+  			<td>Location</td>
+  			<td><%= @room.hotel.location %></td>
+  		</tr>
+	</table>
+
+<h6>Remember: Standard of hotel depends on location (eg. country)</h6>
