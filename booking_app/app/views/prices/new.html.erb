@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-8">
+    <table class="table">
+        <%= form_tag hotel_prices_path do %>
+          <tr>
+            <th class="col-md-4">
+              <div>Type of room</div>
+            </th>
+            <th class="col-md-4">
+              <div >Put down price</div>
+            </th>
+          </tr>
+
+          <% @price_list.each do |price| %>
+            <%= fields_for 'price_list[]', price do |p| %>
+            <tr>
+              <td><%= p.text_field :name %></td>
+              <td><%= p.text_field :price %></td>
+            </tr>
+            <% end %>
+          <% end %>
+        <tr>
+          <div class="actions">
+            <td><%= submit_tag %></td>
+          </div>
+        </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<%= form_for @price, url: hotel_price_path do |p| %>
+	<tr>
+	  <td><%= p.text_field :name %></td>
+	  <td><%= p.text_field :price %></td>
+	</tr>
+	<div class="actions">
+		<td><%= p.submit "Save" %></td>
+</div>
+<% end %>

@@ -1,0 +1,18 @@
+<% if price_list.present? %>
+		<div class="col-md-6" align="center">
+			<table class="table table-hover" id="price_list">
+				<th colspan="12">
+					<h1 align="center">Price list for hotel <%= price_list.first.hotel.name %> </h1>
+				</th>
+					<% price_list.each do |p| %>
+						<tr>
+							<td class="col-md-8"><%= p.name %></td>
+							<td class="col-md-2"><%= p.price %></td>
+							<td class="col-md-2"><%= link_to "Edit", edit_hotel_price_path(id: p.id, hotel_id: params[:id]) %></td>
+						</tr>
+					<% end %>
+			</table>
+		</div>
+<% else %>
+	<%= link_to "Set prices", new_hotel_price_path(hotel_id: params[:id]) %>
+<% end %>
