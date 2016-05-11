@@ -1,0 +1,14 @@
+<div>	
+	<%= link_to 'Add new photo', new_hotel_gallery_photo_path( hotel_id: params[:hotel_id], gallery_id: @gallery.id )%>
+</div>
+<div>
+	<% if @gallery.photos.presence %>
+		<% @gallery.photos.each do |p| %>
+			<div class="row">
+  				<div class="col-xs-6 col-md-3">
+					<%= image_tag p.image.url %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

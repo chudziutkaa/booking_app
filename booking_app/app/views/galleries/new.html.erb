@@ -1,0 +1,11 @@
+<%= form_for @gallery, html: { multipart: true },url: hotel_galleries_path do |f| %>
+	<div class="row">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="row">
+		<%= f.label :pictures %>
+		<%= file_field_tag "images[]" %>
+	</div>
+	<%= f.submit "Save" %>
+<% end %>
