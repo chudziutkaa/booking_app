@@ -1,14 +1,47 @@
-<!DOCTYPE html>
-<html>
 <head>
-  <title>BookingApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Booking</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="col-md-12">
+	    <% if notice %>
+	    	<div class="alert alert-success" role="alert">
+				<%= notice %>
+			</div>
+		<% end %>
+
+		<% if alert %>
+			<div class="alert alert-danger" role="alert">
+				<%= alert %>
+			</div>
+		<% end %>
+	</div>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="col-md-4">
+			<ul class="nav nav-pills" align="center">
+				<li role="presentation">
+				    <%= link_to home_index_path do %>
+				    	<span class="glyphicon glyphicon-home" aria-hidden="true"><br>HOME</span>
+				    <% end %> 
+				</li>
+				<li role="presentation">
+				    <%= link_to hotels_path do %>
+				    	<span class="glyphicon glyphicon-header" aria-hidden="true"><br>HOTELS</span>
+				    <% end %>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<p class="brand_header">booking app <small><br>
+				<% 5.times do %>
+				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+				<% end %>
+				<p id="author">written by Klaudia Chudy</p>
+			</p>
+		</div>
+	</nav>
 
 <%= yield %>
-
 </body>
-</html>
