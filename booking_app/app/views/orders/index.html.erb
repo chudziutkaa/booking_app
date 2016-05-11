@@ -1,0 +1,15 @@
+<table class="table table-hover">
+	<% @orders.each do |o| %>
+		<tr>
+			<td><%= o.hotel.name %></td>
+			<td><%= o.room.number %></td>
+			<td><%= link_to "Details" , room_path(id: o.room.id) %></td>
+			<td> Rented: <%= o.start_time %></td>
+			<% if o.end_time.present? %>
+				<td> Unrented: <%= o.end_time %></td>
+			<% else %>
+				<td><%= link_to "Unrent" , unrent_room_path(order_id: o.id)%></td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>
