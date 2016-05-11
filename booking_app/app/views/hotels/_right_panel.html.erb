@@ -1,0 +1,15 @@
+<div>
+  <p>You can put down hotel's name:</p>
+    <%= form_tag browse_path, method: :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: :nil %>
+    </p>
+  <% end %>
+</div>
+<br>
+<div>
+  <p class="navbar-text pull-left", align="center">
+    <%= link_to "Add a new hotel!", new_hotel_path %>
+  </p>
+</div>

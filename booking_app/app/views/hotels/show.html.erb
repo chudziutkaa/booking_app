@@ -1,0 +1,23 @@
+<div class="col-md-12">
+	<h3 align="center"><%= @hotel.name %> hotel </h3>
+</div>
+<div class="col-md-8">
+	<div class="col-md-12">
+      <% if @hotel.gallery.photos.present? %>
+        <%= image_tag @hotel.gallery.photos.first.image.url, class: "img-responsive" %>
+        <% end %>
+    </div>
+    <div class="col-md-12">
+    	<h5> Location: <%= @hotel.location %> <h5>
+    	<h5> Description: <%= @hotel.description %></h5>
+    </div>
+</div>
+<div class="col-md-4">
+	<div class="row">
+		<h5 align="center"> available rooms in hotel: </h5>
+		<%= render partial: "rooms/index" %>
+	</div>
+	<div class="col-md-4">
+		<%= render "prices/index", price_list: @hotel.prices %>
+	</div>
+</div>
