@@ -1,0 +1,17 @@
+<div class="row">
+	<% if @comments.any? %>
+		<% @comments.each do |c| %>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<h3><%= c.content %></h3>
+				</div>
+				<div class="caption">
+					<h4><%= c.author %></h4>
+				</div>
+			</div>
+		<% end %>
+		<% else %>
+			<p>No comments :( But you can be first!</p>
+	<% end %>
+</div>
+<a><%= link_to "Add comment!", new_hotel_comment_path %></a>

@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for @comment, url: hotel_comments_path do |c| %>
+    <form class="form-horizontal">
+
+    	<div class="form-group">
+    		<%= c.label :author, class: "col-sm-2 control-label" %>
+        	<%= c.text_field :author, class: "form-control" %>
+      	</div>
+      	<div class="form-group">
+      		<%= c.label :content, class: "col-sm-2 control-label" %>
+        	<%= c.text_field :content, class: "form-control"%>
+      	</div>
+
+    	<div class="col-sm-offset-2 col-sm-10">
+          <%= c.submit "Save!", class: "btn btn-default" %>
+        </div>
+    </form>
+    <% end %>
+  </div>
+</div>
