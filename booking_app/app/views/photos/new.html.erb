@@ -1,0 +1,7 @@
+<%= form_for @photo, html: { multipart: true }, url: hotel_gallery_photos_path do |f| %>
+	<div class="row">
+		<%= f.label :pictures %>
+		<%= f.file_field :image %>
+	</div>
+	<%= f.submit "Save" %>
+<% end %>
