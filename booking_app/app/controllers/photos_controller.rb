@@ -8,9 +8,9 @@ class PhotosController < ApplicationController
 	end
 
 	def create
-		@photo = Photo.create!( gallery: @gallery, params: photo_params )
+		@photo = Gallery.find(params[:gallery_id]).photos.create(photo_params)
 		if @photo.save
-			redirect_to hotel_gallery_path, notice: "Photo has been added to your gallery."
+			redirect_to hotel_gallery_path(id: params[:gallery_id]), notice: "Photo has been added to your gallery."
 		else
 			render :new, notice: "Ups! Try again."
 		end
@@ -20,8 +20,8 @@ class PhotosController < ApplicationController
 		@photo = Photo.find(params[:id])
 	end
 
-	# private
-	# def photo_params
-	# 	params.require(:photo).permit(:image)
-	# end
+	private
+	def photo_params
+		params.require(:photo).permit(:image)
+	end
 end
