@@ -13,11 +13,11 @@ class PricesController < ApplicationController
 	end
 
 	def create
-		params["price_list"].each do |price|
-			if params.has_key?("price")
-				@price = Hotel.find(params[:hotel_id]).prices.create!(params["price"])
-			else
-				@price = Hotel.find(params[:hotel_id]).prices.create!(price_params(price))
+		if params.has_key?("price")
+			@price = Hotel.find(params[:hotel_id]).prices.create!(create_price_params["price"])
+		else
+			params["price_list"].each do |price|
+				@price = Hotel.find(params[:hotel_id]).prices.create!(create_price_params(price))
 			end
 		end
 		if @price.save
