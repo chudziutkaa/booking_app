@@ -46,7 +46,13 @@ class HotelsController < ApplicationController
 		@hotels = Hotel.browse(params[:search])
 	end
 
+	def lowest_price(hotel)
+		@lowest_price = Price.where(hotel_id: hotel.id).minimum(:price)
+	end
+	helper_method :lowest_price
+
 	private
+
 	def hotel_params
 		params.require(:hotel).permit(:name, :standard, :description, :location)
 	end

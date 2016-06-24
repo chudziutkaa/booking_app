@@ -19,7 +19,7 @@
         <p><%= h.description.presence || "Brak danych" %></p>
       </div>
       <div class="col-md-6">
-        <h5><%= link_to "Show prices", hotel_prices_path(h) %></h5>
+        <h5>Rent room from: <%= number_to_currency(lowest_price(h)) || "No price list" %></h5>
       </div>
       <div class="col-md-6">
         <h5><%= link_to "Show opinions", hotel_comments_path(h) %></h5>
