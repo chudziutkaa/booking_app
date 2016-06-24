@@ -1,44 +1,5 @@
-<div class="col-md-8">
-  <% @hotels.each do |h| %>
-      <div class="col-md-4">
-      <% if h.gallery.present? %>
-        <%= image_tag h.gallery.photos.first.image.url, class: "img-responsive" %>
-        <%= link_to "See the hotel", hotel_gallery_path( hotel_id: h.id, id: h.gallery(params[:id]) ) %>
-      <% else %>
-        <%= link_to "Add some photos", new_hotel_gallery_path(h) %>
-      <% end %>
-    </div>
-    <div class="col-md-8">
-      <div class="col-md-12">
-        <h4><%= link_to h.name , hotel_path(h) %> <%= h.standard.presence || "Brak danych" %></h4>
-      </div>
-      <div class="col-md-12">
-        <h5>Location: <%= h.location.presence || "Brak danych" %></h5>
-      </div>
-      <div class="col-md-12">
-        <p><%= h.description.presence || "Brak danych" %></p>
-      </div>
-      <div class="col-md-6">
-        <h5><%= link_to "Show prices", hotel_prices_path(h) %></h5>
-      </div>
-      <div class="col-md-6">
-        <h5><%= link_to "Show opinions", hotel_comments_path(h) %></h5>
-      </div>
-      <div class="col-md-4">
-        <%= link_to "Show orders", hotel_orders_path(h) %>
-      </div>
-      <div class="col-md-4">
-        <%= link_to "Edit", edit_hotel_path(h)%>
-      </div>
-      <div class="col-md-4">
-        <%= link_to "Destroy", hotel_path(h), method: :delete, data: { confirm: 'Are you sure?'} %>
-      </div> 
-    </div>
-    <div class="col-md-12">
-      <hr>
-    </div>
-  <% end %>
-</div>
-<div class="col-md-4">
-  <%= render "right_panel" %>
+<div class="row">
+  <div>
+    <%= render "index" %>
+  </div>
 </div>

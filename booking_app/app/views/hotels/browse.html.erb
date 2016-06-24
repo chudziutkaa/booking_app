@@ -1,34 +1,5 @@
 <div class="row">
-  <div class="col-md-8">
-    <table class="table table-hover">
-      <% @hotels.each do |h| %>
-      <tr>
-        <th class="danger"> Name</th>
-        <th class="danger"> Standard</th>
-        <th class="danger"> About this hotel </th>
-        <th class="danger"> Location </th>
-        <th class="danger"> Show available rooms </th>
-        <th class="danger"> Show orders </th>
-        <th class="danger"> Edit </th>
-        <th class="danger"> Destroy </th>
-      </tr>
-        <tr>
-          <td><%= link_to h.name, hotel_path(h) %></td>
-          <td><%= h.standard.presence || "Brak danych" %></td> 
-          <td><%= h.description.presence || "Brak danych" %></td>
-          <td><%= h.location.presence || "Brak danych" %></td>
-          <td><%= link_to "Show rooms", hotel_rooms_path(h) %></td>
-          <td><%= link_to "Show orders", hotel_orders_path(h) %></td>
-          <td><%= link_to "Edit", edit_hotel_path(h)%></td>
-          <td><%= link_to "Destroy", hotel_path(h), method: :delete, data: { confirm: 'Are you sure?'} %></td>
-        </tr>
-        <td colspan = "12", align = "right", font-size = "14">
-          <%= link_to "Show opinions", hotel_comments_path(h) %>
-        </td>
-          <% end %>
-    </table>
-  </div>
   <div>
-    <%= render "right_panel" %>
+    <%= render "index" %>
   </div>
 </div>
