@@ -1,5 +1,7 @@
 class PricesController < ApplicationController
 	before_action :set_price_list, only: [ :edit, :update ]
+	
+	before_action :authenticate_user!
 
 	def index
 		@price_list = Price.where(hotel_id: params[:hotel_id])

@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
 	before_action :set_comment, only: :show
 
+	before_action :authenticate_user!
+
 	def index
 		@comments = Comment.where(hotel_id: params[:hotel_id])
 	end

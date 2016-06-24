@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
 	before_action :set_room, only: [ :edit, :show, :update, :rent ]
 
+	before_action :authenticate_user!
+
 	def index
 		@rooms = Room.where(hotel_id: params[:hotel_id])
 	end

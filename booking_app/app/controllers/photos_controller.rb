@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+	before_action :authenticate_user!
+
 	def index
 		@photos = Photo.where( gallery_id: params[:gallery_id] )
 	end
