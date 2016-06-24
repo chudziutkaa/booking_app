@@ -13,7 +13,7 @@ class Hotel < ActiveRecord::Base
 
 	def self.browse(search)
 		if search
-			Hotel.where('name LIKE ?', "%#{search}%")
+			Hotel.where('location LIKE ?', "%#{search}%")
 		else
 			Hotel.all
 		end
