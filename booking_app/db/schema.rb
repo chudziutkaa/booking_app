@@ -25,11 +25,14 @@ ActiveRecord::Schema.define(version: 20160517203043) do
   end
 
   create_table "hotels", force: :cascade do |t|
-    t.string "name"
-    t.string "standard"
-    t.text   "description"
-    t.string "location"
+    t.string  "name"
+    t.string  "standard"
+    t.text    "description"
+    t.string  "location"
+    t.integer "owner_id"
   end
+
+  add_index "hotels", ["owner_id"], name: "index_hotels_on_owner_id"
 
   create_table "orders", force: :cascade do |t|
     t.integer  "room_id"

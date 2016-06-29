@@ -13,6 +13,7 @@ class HotelsController < ApplicationController
 
 	def create
 		@hotel = Hotel.new(hotel_params)
+		@hotel.owner = current_user
 		if @hotel.save
 			redirect_to hotels_path, notice: "Hotel succesfully created!"
 		else
@@ -54,7 +55,7 @@ class HotelsController < ApplicationController
 	private
 
 	def hotel_params
-		params.require(:hotel).permit(:name, :standard, :description, :location)
+		params.require(:hotel).permit(:name, :standard, :description, :location, :owner)
 	end
 
 	def set_hotel
